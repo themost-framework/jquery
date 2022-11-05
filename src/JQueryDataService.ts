@@ -14,22 +14,22 @@ class JQueryDataService extends ClientDataService {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }};
-        console.log(headers);
         return new Promise<EdmSchema>((resolve, reject) => {
-            void jQuery.get(this.resolve('$metadata'), {
+            void jQuery.get({
+                url: this.resolve('$metadata'),
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 headers,
-                dataType: 'text',
-                withCredentials: true
-            }).done((data: { status: number, body?: any }, textStatus, jqXHR) => {
-                if (data.status === 204) {
+                dataType: 'text'
+            }).done((data: string, textStatus, jqXHR) => {
+                if (jqXHR.status === 204) {
                     return resolve(null);
                 } else {
                     // safely handle empty body
-                    if ((data.body == null) || (typeof data.body === 'string' && data.body.length === 0)) {
+                    if ((typeof data === 'string' && data.length === 0)) {
                         return resolve(null);
                     }
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-                    return resolve(EdmSchema.loadXML(data.body));
+                    return resolve(EdmSchema.loadXML(data));
                 }
             }).fail(( jqXHR, textStatus, errorThrown) => {
                 return reject(new Error(errorThrown));

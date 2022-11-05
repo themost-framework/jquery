@@ -26,8 +26,8 @@ module.exports = (config) => {
             { pattern: 'spec/**/*.ts' }
         ],
         preprocessors: {
-            '**/*.ts': [ 'karma-typescript' ],
-            '**/*.js': ['sourcemap']
+            '**/*.ts': [ 'sourcemap', 'karma-typescript' ],
+
         },
         reporters: [ 'kjhtml', 'spec', 'coverage' ],
         coverageReporter: {
