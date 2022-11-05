@@ -2,15 +2,17 @@ const path = require('path');
 module.exports = (config) => {
     config.set({
         basePath: '.',
-        frameworks: [ 'jasmine', 'karma-typescript' ],
+        frameworks: [ 'jasmine', 'karma-typescript', 'api' ],
         port: '8080',
         plugins: [
             'karma-jasmine',
             'karma-chrome-launcher',
             'karma-typescript',
+            'karma-sourcemap-loader',
             'karma-spec-reporter',
             'karma-jasmine-html-reporter',
-            'karma-coverage'
+            'karma-coverage',
+            require('./karma-test-api'),
         ],
         karmaTypescriptConfig: {
             tsconfig: "tsconfig.spec.json",
@@ -24,7 +26,8 @@ module.exports = (config) => {
             { pattern: 'spec/**/*.ts' }
         ],
         preprocessors: {
-            '**/*.ts': [ 'karma-typescript' ]
+            '**/*.ts': [ 'karma-typescript' ],
+            '**/*.js': ['sourcemap']
         },
         reporters: [ 'kjhtml', 'spec', 'coverage' ],
         coverageReporter: {
@@ -35,7 +38,7 @@ module.exports = (config) => {
         logLevel: config.LOG_INFO,
         autoWatch: true,
         browsers: ['ChromeHeadlessNoSandbox'],
-        singleRun: true,
+        singleRun: false,
         customLaunchers: {
             ChromeHeadlessNoSandbox: {
                 base: 'ChromeHeadless',

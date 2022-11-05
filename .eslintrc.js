@@ -6,7 +6,7 @@ It represents the closest reasonable ESLint configuration to this
 project's original TSLint configuration.
 
 We recommend eventually switching this configuration to extend from
-the recommended rulesets in typescript-eslint. 
+the recommended rulesets in typescript-eslint.
 https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FAQs.md
 
 Happy linting! 💖
@@ -14,7 +14,7 @@ Happy linting! 💖
 module.exports = {
     "env": {
         "browser": true,
-        "node": true
+        "node": false
     },
     "extends": [
         "plugin:@typescript-eslint/recommended",
@@ -22,7 +22,7 @@ module.exports = {
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "tsconfig.json",
+        "project": "tsconfig.spec.json",
         "sourceType": "module"
     },
     "plugins": [
@@ -157,7 +157,7 @@ module.exports = {
         ],
         "prefer-arrow/prefer-arrow-functions": "error",
         "prefer-const": "error",
-        "quotes": "error",
+        "quotes": ["error", "single"],
         "radix": "error",
         "use-isnan": "error",
         "valid-typeof": "off"
