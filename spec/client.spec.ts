@@ -1,8 +1,9 @@
-import { JQueryDataService } from '../src/JQueryDataService';
+import { JQueryDataService } from '../src';
 import * as jQuery from 'jquery';
 
 /**
  * get test token
+ *
  * @param username
  * @param password
  */
