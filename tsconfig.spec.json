@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "target": "ESNext",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "resolveJsonModule": false,
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "outDir": "./dist",
+        "lib": [
+            "es2015",
+            "es2016",
+            "es2017",
+            "dom"
+        ]
+    },
+    "include": [
+        "spec",
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
