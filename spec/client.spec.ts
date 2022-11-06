@@ -1,4 +1,4 @@
-import {JQueryDataContext, JQueryDataService} from "../src";
+import {JQueryDataContext, JQueryDataService} from '../src';
 import * as jQuery from 'jquery';
 
 /**
@@ -62,5 +62,18 @@ describe('JQueryClient', () => {
         const items = await context.model('Orders').asQueryable()
                 .orderByDescending('orderDate').getItems();
         expect(items).toBeInstanceOf(Array);
+    });
+
+    it('should respond with error', async () => {
+        const context = new JQueryDataContext({
+            base: '/api/',
+            options: {
+                useMediaTypeExtensions: false,
+                useResponseConversion: true
+            }
+        });
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        await expectAsync(context.model('Orders').asQueryable()
+            .orderByDescending('orderDate').getItems()).toBeRejected();
     });
 });

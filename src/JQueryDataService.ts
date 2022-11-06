@@ -1,4 +1,4 @@
-import { ClientDataContextOptions, ClientDataService, DataServiceExecuteOptions, EdmSchema } from '@themost/client';
+import { ResponseError, ClientDataContextOptions, ClientDataService, DataServiceExecuteOptions, EdmSchema } from '@themost/client';
 import * as jQuery from 'jquery';
 
 const DateTimeRegex = /^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])(?:[T ](\d+):(\d+)(?::(\d+)(?:\.(\d+))?)?)?(?:Z(-?\d*))?$/g;
@@ -48,7 +48,7 @@ class JQueryDataService extends ClientDataService {
                     return resolve(JSON.parse(data, reviver));
                 }
             }).fail((jqXHR, textStatus, errorThrown) => {
-                return reject(new Error(errorThrown));
+                return reject(new ResponseError(errorThrown, jqXHR.status));
             })
         });
     }
@@ -80,7 +80,7 @@ class JQueryDataService extends ClientDataService {
                     return resolve(EdmSchema.loadXML(data));
                 }
             }).fail(( jqXHR, textStatus, errorThrown) => {
-                return reject(new Error(errorThrown));
+                return reject(new ResponseError(errorThrown, jqXHR.status));
             });
         });
     }

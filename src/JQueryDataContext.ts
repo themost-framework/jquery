@@ -1,7 +1,6 @@
 import {ClientDataContext, ClientDataContextOptions} from '@themost/client';
 import {JQueryDataService} from './JQueryDataService';
 import * as jQuery from 'jquery';
-import {type} from "jquery";
 
 interface ClientDataContextConfig {
     base: string;
@@ -21,6 +20,7 @@ declare global {
         dataContext(method: 'getContext'): JQueryDataContext;
     }
 }
+// noinspection JSUnusedGlobalSymbols
 jQuery.fn.extend({
     dataContext: (config: ClientDataContextConfig | 'getContext') => {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
