@@ -20,11 +20,15 @@ module.exports = [{
             name: '@themost/jquery',
             file: 'dist/index.umd.js',
             format: 'umd',
-            sourcemap: true
+            sourcemap: true,
+            globals: {
+                '@themost/client': '@themost/client',
+                'jquery': 'jQuery'
+            }
         },
     ],
     external: Object.keys(pkg.dependencies).concat(
-        // add extra sub-modules
+        Object.keys(pkg.peerDependencies)
     ),
     plugins: [
         typescript({ tsconfig: './tsconfig.json' })
