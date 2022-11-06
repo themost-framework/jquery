@@ -1,6 +1,6 @@
 {
   "name": "@themost/jquery",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "MOST Web Framework JQuery client",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kbarbounakis/jquery.git"
+    "url": "git+https://github.com/themost-framework/jquery.git"
   },
   "keywords": [
     "api",
@@ -19,9 +19,9 @@
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/kbarbounakis/jquery/issues"
+    "url": "https://github.com/themost-framework/jquery/issues"
   },
-  "homepage": "https://github.com/kbarbounakis/jquery#readme",
+  "homepage": "https://github.com/themost-framework/jquery#readme",
   "dependencies": {
     "jquery": "^3.6.1"
   },
