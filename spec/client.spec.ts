@@ -45,5 +45,6 @@ describe('JQueryClient', () => {
         service.setHeader('Authorization', `Bearer ${token.access_token}`);
         const schema = await service.getMetadata();
         expect(schema).toBeTruthy();
+        expect(schema.EntityType).toBeInstanceOf(Array);
     });
 });

@@ -11,8 +11,7 @@ class JQueryDataService extends ClientDataService {
     getMetadata(): Promise<EdmSchema> {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const headers: any = { ...this.getHeaders(), ...{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/xml'
             }};
         return new Promise<EdmSchema>((resolve, reject) => {
             void jQuery.get({

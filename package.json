@@ -4,7 +4,8 @@
   "description": "MOST Web Framework JQuery client",
   "main": "dist/index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "build": "rimraf dist && rimraf platform-server/dist && rollup -c ./rollup.config.js"
   },
   "repository": {
     "type": "git",
