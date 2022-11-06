@@ -1,0 +1,28 @@
+# test
+spec
+karma.conf.js
+karma-test-api.js
+tslint.json
+tsconfig.json
+tsconfig.spec.json
+
+# eslint
+.eslintrc.js
+.eslintignore
+
+# build
+rollup.config.js
+babel.config.js
+
+# github
+.github
+
+#editors
+.idea
+.vscode
+.theia
+.DS_Store
+.devcontainer
+
+# gitpod
+.gitpod.yml
