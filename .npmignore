@@ -5,6 +5,7 @@ karma-test-api.js
 tslint.json
 tsconfig.json
 tsconfig.spec.json
+examples
 
 # eslint
 .eslintrc.js
