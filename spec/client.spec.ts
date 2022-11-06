@@ -1,4 +1,4 @@
-import { JQueryDataService } from '../src';
+import {JQueryDataContext, JQueryDataService} from "../src";
 import * as jQuery from 'jquery';
 
 /**
@@ -46,5 +46,21 @@ describe('JQueryClient', () => {
         const schema = await service.getMetadata();
         expect(schema).toBeTruthy();
         expect(schema.EntityType).toBeInstanceOf(Array);
+    });
+
+    it('should get data', async () => {
+        const token: { access_token: string } = await authorize('alexis.rees@example.com', 'secret')
+        const context = new JQueryDataContext({
+            base: '/api/',
+            options: {
+                useMediaTypeExtensions: false,
+                useResponseConversion: true
+            }
+        });
+        context.setBearerAuthorization(token.access_token);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const items = await context.model('Orders').asQueryable()
+                .orderByDescending('orderDate').getItems();
+        expect(items).toBeInstanceOf(Array);
     });
 });
