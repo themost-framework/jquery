@@ -1,6 +1,6 @@
 {
   "name": "@themost/jquery",
-  "version": "1.0.0",
+  "version": "2.7.1",
   "description": "MOST Web Framework JQuery client",
   "main": "dist/index.js",
   "scripts": {
