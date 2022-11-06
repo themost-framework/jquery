@@ -22,8 +22,8 @@ declare global {
 }
 // noinspection JSUnusedGlobalSymbols
 jQuery.fn.extend({
-    dataContext: (config: ClientDataContextConfig | 'getContext') => {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
+    dataContext: function dataContext(config: ClientDataContextConfig | 'getContext') {
+        // eslint-disable-next-line @typescript-eslint/no-this-alias,@typescript-eslint/no-unsafe-assignment
         const element: JQuery<HTMLElement> = this;
         if (element != null) {
             if (config === 'getContext') {
