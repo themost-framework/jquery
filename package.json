@@ -1,6 +1,6 @@
 {
   "name": "@themost/jquery",
-  "version": "2.7.4",
+  "version": "2.8.0",
   "description": "MOST Web Framework JQuery client",
   "main": "dist/index.js",
   "scripts": {
@@ -27,7 +27,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.5",
-    "@themost/test": "^1.0.13",
+    "@themost/client": "^2.9.0",
+    "@themost/express": "^1.6.0",
+    "@themost/test": "^2.2.0",
     "@types/express": "^4.17.14",
     "@types/jasmine": "^4.3.0",
     "@types/jquery": "^3.5.14",
@@ -54,6 +56,6 @@
     "typescript": "^4.2.4"
   },
   "peerDependencies": {
-    "@themost/client": "^2.5.6"
+    "@themost/client": "^2.9.0"
   }
 }
