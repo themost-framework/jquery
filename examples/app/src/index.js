@@ -2,6 +2,7 @@ const { getApplication, serveApplication } = require('@themost/test');
 const path = require('path');
 const express = require('express');
 const { Router } = require('express');
+const { homeRouter } = require('./homeRouter');
 
 function insertRouterBefore(parent, before, insert) {
     const beforeIndex = parent.stack.findIndex( (item) => {
@@ -19,17 +20,13 @@ function insertRouterBefore(parent, before, insert) {
 const app = getApplication();
 app.use('/home', express.static('public/home'));
 
-const addRouter = Router()
-addRouter.use('^/$', (req, res,next) => {
-    return res.redirect('auth/login?redirect_uri=/home')
-});
-app.use('/', addRouter);
+app.use('/', homeRouter);
 
 const router = app._router;
 const before = router.stack.find((item) => {
-    return item.name === 'router' && item.regexp && item.regexp.test('/');
+    return item.name === 'router' && item.regexp != null && item.regexp.test('/');
 });
 const insert = router.stack[router.stack.length - 1];
-insertRouterBefore(router, before, insert)
+insertRouterBefore(router, before, insert);
 
 serveApplication(app, 8080);
